@@ -22,6 +22,10 @@ set ROM_DIR=%SETUP_DIR%\tools\FactoryToolV3.4\Temp
 	git pull --recurse-submodules=yes > nul
 	if %ERRORLEVEL% neq 0 goto ERROR
 
+	cd %UBI_DIR%
+	git pull
+	if %ERRORLEVEL% neq 0 goto ERROR
+	cd %_%
 	echo OK!
 	
 :CLEAN_OUPUT_FILES
