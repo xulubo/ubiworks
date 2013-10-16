@@ -1,3 +1,9 @@
 [submodule "portal"]
 	path = portal
 	url = https://github.com/abdossalami/Portal
+[submodule "theubi"]
+	path = theubi
+	url = https://github.com/abdossalami/oobi
+[submodule "setup"]
+	path = setup
+	url = https://github.com/abdossalami/Setup
