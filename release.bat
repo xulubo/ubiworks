@@ -1,3 +1,4 @@
+path
 @echo off
 set _=%CD%
 set UBI_DIR=%_%\theubi
@@ -23,7 +24,7 @@ set ROM_DIR=%SETUP_DIR%\tools\FactoryToolV3.4\Temp
 	if %ERRORLEVEL% neq 0 goto ERROR
 
 	cd %UBI_DIR%
-	git pull
+	git pull -v --progress "origin" master
 	if %ERRORLEVEL% neq 0 goto ERROR
 	cd %_%
 	echo OK!
