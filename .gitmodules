@@ -4,6 +4,7 @@
 [submodule "theubi"]
 	path = theubi
 	url = https://github.com/abdossalami/oobi
+	branch = release
 [submodule "setup"]
 	path = setup
 	url = https://github.com/abdossalami/Setup
