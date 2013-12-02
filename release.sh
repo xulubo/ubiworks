@@ -20,7 +20,7 @@ if [ -f ${RELEASE_APK} ]; then
 fi
 
 echo ">>>>>>>>>>STAGE: build"
-build.sh nowait 
+build.sh fromsrc 
 if [ $? -ne 0 ];then
 	echo Failed! APK was not built
 	echo press Enter to exit

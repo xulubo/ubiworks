@@ -22,7 +22,7 @@ update_source_code() {
 	echo 2. updating source code from github ... 
 
 	cd $UBI_DIR
-	git pull -v --progress "origin" release
+	git pull -v --progress "origin" 
 	if [ $? -ne 0 ]; then
 		fatal "ERROR: something wrong while updating souce code"
 	fi
@@ -72,7 +72,7 @@ copy_to_rom_folder() {
   # ==========================================================
   # copy user apps
   # ==========================================================	
-  for apk in theubi OobiGrasp ubiupdater googlesearchbox adbkonnect MiniPcUpTime; do
+  for apk in theubi ubiupdater googlesearchbox adbkonnect MiniPcUpTime OobiGrasp; do
 		cp -f $APK_DIR/$apk.apk $ROM_DIR/System/app/$apk.nm
 		if [ $? -ne 0 ]; then
 			fatal "Failed! could not copy $apk.apk"
@@ -115,16 +115,21 @@ fatal()
 {
 	echo $1
 	echo Print Enter to exit
+	read x
 	exit 1
 }
 
 prerequisite
-update_source_code
-clean_output_folders
-build_apk
+
+if [ $# -gt 0 ] && [ $1 == "fromsrc" ]; then
+	update_source_code
+	clean_output_folders
+	build_apk
+fi
+
 copy_to_rom_folder
 
-if [ $# -gt 0 ] && [ $1 == "nowait" ]; then
+if [ $# -gt 0 ]; then
 	exit 0
 fi
 
